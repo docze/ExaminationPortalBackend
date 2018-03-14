@@ -44,17 +44,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .logout()
                     .permitAll();
     }
-
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth)
-//            throws Exception {
-//        auth.
-//                jdbcAuthentication()
-//                .usersByUsernameQuery(userQuery)
-//                .authoritiesByUsernameQuery(roleQuery)
-//                .passwordEncoder(bCryptPasswordEncoder);
-//    }
-
     @Bean
     @Override
     public UserDetailsService userDetailsService(){
