@@ -1,8 +1,6 @@
 package pl.woonkievitch.Authentication.controller;
 
-import com.sun.org.apache.bcel.internal.generic.MONITORENTER;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;

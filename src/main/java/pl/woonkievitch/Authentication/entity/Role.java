@@ -23,5 +23,4 @@ public class Role {
     public void setRole(String name) {
         this.role = role;
     }
-
 }

@@ -11,6 +11,7 @@ import pl.woonkievitch.Authentication.repository.UserRepository;
 
 import java.util.Arrays;
 import java.util.HashSet;
+
 @Service("userService")
 public class UserServiceImpl implements UserService {
     @Autowired
