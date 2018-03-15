@@ -1,6 +1,8 @@
 package pl.woonkievitch.Authentication.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pl.woonkievitch.Authentication.entity.User;
 import pl.woonkievitch.Authentication.service.UserService;
 
+import javax.jws.WebParam;
 import javax.validation.Valid;
 
 @Controller
@@ -49,5 +52,23 @@ public class mainController {
         }
         return modelAndView;
 
+    }
+
+    @RequestMapping(value="/home", method= RequestMethod.GET)
+    public ModelAndView home(){
+        ModelAndView modelAndView = new ModelAndView();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User userByEmail = userService.findUserByEmail(authentication.getName());
+        modelAndView.addObject("userName", "Welcome "+userByEmail.getLogin());
+        modelAndView.setViewName("home");
+        return modelAndView;
+
+    }
+
+    @RequestMapping(value="/hello", method = RequestMethod.GET)
+    public ModelAndView hello(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("hello");
+        return modelAndView;
     }
 }
